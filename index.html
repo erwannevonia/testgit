@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Prise contact</title>
+    </head>
+    <body>
+        <h1>Formulaire</h1>
+        <div> 
+            <form id="formulaire" action="php/query.php" method="POST">
+                <div class="formulaire">
+                    <label>Prénom :
+                        <input id="prenom" name="prenom">
+                    </label>
+                    <br><br>
+                    <label>Nom :
+                        <input id="nom" name="nom">
+                    </label>
+                    <br><br>
+                    <label>E-mail :
+                        <input type="email" id="mail" name="mail">
+                    </label>
+                    <br><br>
+                    <label>N° de Téléphone :
+                        <input type="tel" id="noTel" name="noTel">
+                    </label>
+                    <br><br>
+                    <label>
+                        Voie souhaitée :
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="initial" value="initial">
+                        <div class="choix">Initial</div>
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="appr" value="appr">
+                        <div class="choix">Apprentissage</div>
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="idk" value="idk">
+                        <div class="choix">Ne sais pas encore</div>
+                    </label>
+                    <br><br>
+                    <label>Formation + niveau souhaité :
+                        <input id="formation" name="formation">
+                    </label>
+                    <br><br>
+                    <label>Informations Suplémentaires :
+                        <br>
+                        <input type="text" id="infoSupp" name="infoSupp">
+                    </label>
+                </div>
+                <br>
+                <button id="submit" type="submit">Envoyer</button>
+            </form>
+        </div>
+        <script>
+            // Permet d'attendre que la DOM soit chargée avant d'éxécuter le code JS
+            document.addEventListener('DOMContentLoaded', function() {
+                // Attend un input avant de réaliser la fonction
+                document.getElementById('noTel').addEventListener('input', function(event) {
+                    let value = document.getElementById('noTel').value;
+                    let cleanedValue = value.replace(/[^\d]/g, ''); // Garde uniquement les chiffres
+                    event.target.value = cleanedValue;
+                });
+            });
+        </script>
+    </body>
+</html>
